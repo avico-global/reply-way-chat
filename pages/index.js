@@ -6,12 +6,11 @@ import Footer from "../components/common/Footer";
 import CTA from "../components/container/Home/CTA";
 import Container from "../components/common/Container";
 
-export default function index() {
+export default function Home() {
   return (
     <>
       <Navbar />
       <Hero />
-      {/* Product showcase section */}
       <section className="py-20 bg-gradient-to-b from-white to-slate-50/50 dark:from-slate-900 dark:to-slate-800/50 transition-colors duration-300">
         <Container>
           <div className="text-center mb-16">
@@ -48,7 +47,7 @@ export default function index() {
               </div>
 
               {/* Screenshot */}
-              <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700/50 h-[600px]">
+              <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700/50">
                 <img
                   src="/st-images/demo.png"
                   alt="ReplyWay Dashboard - Team collaboration interface"

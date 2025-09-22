@@ -121,7 +121,7 @@ export default function Navbar() {
             <button
               onClick={toggle}
               aria-label="Toggle theme"
-              className="hidden lg:flex w-9 h-9 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200"
+              className="hidden lg:flex w-10 h-10 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200"
               title={isDark ? "Switch to light mode" : "Switch to dark mode"}
             >
               {isDark ? (
@@ -131,19 +131,21 @@ export default function Navbar() {
               )}
             </button>
 
-            <button
-              onClick={openSignupForm}
-              className="btn btn-primary btn-small hidden lg:flex"
-            >
-              Sign Up
-            </button>
+            <div className="hidden lg:flex items-center justify-end gap-3">
+              <button
+                onClick={openSignupForm}
+                className="btn btn-primary btn-small"
+              >
+                Sign Up
+              </button>
 
-            <a
-              href="https://app.replyway.com"
-              className="btn btn-secondary btn-small hidden lg:flex"
-            >
-              Sign In
-            </a>
+              <a
+                href="https://app.replyway.com"
+                className="btn btn-secondary btn-small"
+              >
+                Sign In
+              </a>
+            </div>
 
             {/* Mobile menu button */}
             <button

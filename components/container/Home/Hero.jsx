@@ -15,14 +15,14 @@ export default function Hero() {
       </div>
 
       {/* Content container */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto py-12 md:py-10">
         {/* Main headline - Framer/Webflow style */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black text-gray-900 dark:text-white mb-8 max-w-6xl mx-auto leading-[0.9] tracking-tight">
+        <h1 className="text-6xl lg:text-8xl font-black text-gray-900 dark:text-white mb-8 max-w-6xl mx-auto leading-[0.9] tracking-tight">
           The future of
           <span className="block text-transparent bg-gradient-to-r from-blue-500 via-blue-500 to-blue-600 bg-clip-text animate-gradient">
             team collaboration
           </span>
-          <span className="block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-light text-gray-600 dark:text-gray-300 mt-2">
+          <span className="block text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-light text-gray-600 dark:text-gray-300 mt-2">
             starts here
           </span>
         </h1>
@@ -83,8 +83,8 @@ export default function Hero() {
         </div>
 
         {/* Trust indicators - Enhanced Framer style */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12">
-          <div className="flex items-center space-x-3 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm px-4 py-3 rounded-full border border-gray-200/50 dark:border-gray-600/50">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-12">
+          <div className="flex items-center space-x-3 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm p-2 md:px-4 md:py-3 rounded-full border border-gray-200/50 dark:border-gray-600/50">
             <div className="w-8 h-8 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center">
               <svg
                 className="w-4 h-4 text-white"
@@ -103,7 +103,7 @@ export default function Hero() {
             </span>
           </div>
 
-          <div className="flex items-center space-x-3 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm px-4 py-3 rounded-full border border-gray-200/50 dark:border-gray-600/50">
+          <div className="flex items-center space-x-3 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm p-2 md:px-4 md:py-3 rounded-full border border-gray-200/50 dark:border-gray-600/50">
             <div className="w-8 h-8 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center">
               <svg
                 className="w-4 h-4 text-white"
@@ -124,7 +124,7 @@ export default function Hero() {
             </span>
           </div>
 
-          <div className="flex items-center space-x-3 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm px-4 py-3 rounded-full border border-gray-200/50 dark:border-gray-600/50">
+          <div className="flex items-center space-x-3 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm p-2 md:px-4 md:py-3 rounded-full border border-gray-200/50 dark:border-gray-600/50">
             <div className="w-8 h-8 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center">
               <svg
                 className="w-4 h-4 text-white"
