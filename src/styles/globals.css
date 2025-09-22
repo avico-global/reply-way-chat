@@ -1,0 +1,355 @@
+@custom-variant dark (:where(.dark, [data-theme="dark"]) &);
+
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+  --color-secondary: var(--secondary);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+}
+
+:root {
+  /* Chat App Design System - Light Theme */
+  --background: #ffffff;
+  --background-secondary: #f8fafc;
+  --background-tertiary: #f1f5f9;
+  --foreground: #0f172a;
+  --foreground-secondary: #334155;
+  --foreground-muted: #64748b;
+  --panel: #ffffff;
+  --border: #e2e8f0;
+  --border-light: #f1f5f9;
+  
+  /* Primary Brand Colors for Chat App */
+  --primary: #3b82f6; /* blue-500 - modern, professional */
+  --primary-hover: #2563eb; /* blue-600 */
+  --primary-light: #dbeafe; /* blue-100 */
+  --primary-dark: #1d4ed8; /* blue-700 */
+  
+  /* Secondary Colors */
+  --secondary: #0ea5e9; /* sky-500 - complementary blue */
+  --secondary-hover: #0284c7; /* sky-600 */
+  --secondary-light: #e0f2fe; /* sky-100 */
+  
+  /* Status Colors */
+  --success: #10b981; /* emerald-500 */
+  --success-light: #d1fae5; /* emerald-100 */
+  --warning: #f59e0b; /* amber-500 */
+  --warning-light: #fef3c7; /* amber-100 */
+  --error: #ef4444; /* red-500 */
+  --error-light: #fee2e2; /* red-100 */
+  
+  /* Chat-specific colors */
+  --chat-bubble-sent: var(--primary);
+  --chat-bubble-received: #f1f5f9;
+  --online-status: var(--success);
+  --away-status: var(--warning);
+  --offline-status: #94a3b8;
+}
+
+.theme-light {
+  --background: #ffffff;
+  --background-secondary: #f8fafc;
+  --background-tertiary: #f1f5f9;
+  --foreground: #0f172a;
+  --foreground-secondary: #334155;
+  --foreground-muted: #64748b;
+  --panel: #ffffff;
+  --border: #e2e8f0;
+  --border-light: #f1f5f9;
+  
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --primary-light: #dbeafe;
+  --primary-dark: #1d4ed8;
+  
+  --secondary: #0ea5e9;
+  --secondary-hover: #0284c7;
+  --secondary-light: #e0f2fe;
+  
+  --success: #10b981;
+  --success-light: #d1fae5;
+  --warning: #f59e0b;
+  --warning-light: #fef3c7;
+  --error: #ef4444;
+  --error-light: #fee2e2;
+  
+  --chat-bubble-sent: var(--primary);
+  --chat-bubble-received: #f1f5f9;
+  --online-status: var(--success);
+  --away-status: var(--warning);
+  --offline-status: #94a3b8;
+}
+
+.theme-dark {
+  /* Chat App Design System - Dark Theme */
+  --background: #0f172a; /* slate-900 */
+  --background-secondary: #1e293b; /* slate-800 */
+  --background-tertiary: #334155; /* slate-700 */
+  --foreground: #f1f5f9; /* slate-100 */
+  --foreground-secondary: #cbd5e1; /* slate-300 */
+  --foreground-muted: #94a3b8; /* slate-400 */
+  --panel: #1e293b; /* slate-800 */
+  --border: #334155; /* slate-700 */
+  --border-light: #475569; /* slate-600 */
+  
+  --primary: #60a5fa; /* blue-400 - brighter for dark mode */
+  --primary-hover: #3b82f6; /* blue-500 */
+  --primary-light: #1e3a8a; /* blue-900 */
+  --primary-dark: #93c5fd; /* blue-300 */
+  
+  --secondary: #38bdf8; /* sky-400 */
+  --secondary-hover: #0ea5e9; /* sky-500 */
+  --secondary-light: #0c4a6e; /* sky-900 */
+  
+  --success: #34d399; /* emerald-400 */
+  --success-light: #064e3b; /* emerald-900 */
+  --warning: #fbbf24; /* amber-400 */
+  --warning-light: #78350f; /* amber-900 */
+  --error: #f87171; /* red-400 */
+  --error-light: #7f1d1d; /* red-900 */
+  
+  --chat-bubble-sent: var(--primary);
+  --chat-bubble-received: #334155;
+  --online-status: var(--success);
+  --away-status: var(--warning);
+  --offline-status: #64748b;
+}
+
+/* Smooth theme transitions */
+html, body, * {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography System */
+.text-heading-1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-heading-2 {
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.text-heading-3 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.text-heading-4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.text-body-large {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.text-body {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.text-body-small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.text-caption {
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+/* Component Classes */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 0.6875rem 1.4375rem;
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+/* Card Components */
+.card {
+  background-color: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.card-feature {
+  background-color: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card-feature:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+/* Status indicators for chat app */
+.status-online {
+  background-color: var(--online-status);
+}
+
+.status-away {
+  background-color: var(--away-status);
+}
+
+.status-offline {
+  background-color: var(--offline-status);
+}
+
+/* Framer/Webflow style animations */
+@keyframes gradient {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.6);
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Text reveal animation */
+@keyframes textReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-text-reveal {
+  animation: textReveal 0.8s ease-out;
+}
+
+/* Stagger animation delays */
+.animate-text-reveal:nth-child(1) { animation-delay: 0.1s; }
+.animate-text-reveal:nth-child(2) { animation-delay: 0.2s; }
+.animate-text-reveal:nth-child(3) { animation-delay: 0.3s; }
+
+/* Magnetic effect for buttons */
+.btn-magnetic {
+  transition: transform 0.2s ease;
+}
+
+.btn-magnetic:hover {
+  transform: scale(1.05) translateY(-2px);
+}
