@@ -132,15 +132,15 @@ export default function Navbar() {
             </button>
 
             <div className="hidden lg:flex items-center justify-end gap-3">
-              <button
-                onClick={openSignupForm}
+              <a
+                href="https://app.replyway.com/#/signup"
                 className="btn btn-primary btn-small"
               >
                 Sign Up
-              </button>
+              </a>
 
               <a
-                href="https://app.replyway.com"
+                href="https://app.replyway.com/#/login"
                 className="btn btn-secondary btn-small"
               >
                 Sign In
