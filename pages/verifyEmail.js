@@ -9,6 +9,7 @@ export default function VerifyEmail() {
   const [isVerifying, setIsVerifying] = useState(true);
   const [isVerified, setIsVerified] = useState(false);
   const [error, setError] = useState(null);
+  const [chatDomain, setChatDomain] = useState(null);
   const { email, token, merchantId } = router.query;
 
   useEffect(() => {
@@ -20,6 +21,10 @@ export default function VerifyEmail() {
 
           if (result.success) {
             console.log("Merchant approved successfully:", result.data);
+            // Extract chatDomain from the response
+            if (result.data?.message?.chatDomain) {
+              setChatDomain(result.data.message.chatDomain);
+            }
             // Show verified state after successful approval
             setTimeout(() => {
               setIsVerifying(false);
@@ -49,7 +54,16 @@ export default function VerifyEmail() {
   }, [merchantId, token, email]);
 
   const handleProceedToLogin = () => {
-    router.push("/signin");
+    if (chatDomain) {
+      // Open the chat domain in a new tab/window
+      const domainUrl = chatDomain.startsWith("http")
+        ? chatDomain
+        : `https://${chatDomain}`;
+      window.open(domainUrl, "_blank");
+    } else {
+      // Fallback to signin if chatDomain is not available
+      router.push("/signin");
+    }
   };
 
   return (
@@ -115,6 +129,10 @@ export default function VerifyEmail() {
                       approveMerchant(merchantId)
                         .then((result) => {
                           if (result.success) {
+                            // Extract chatDomain from the response
+                            if (result.data?.message?.chatDomain) {
+                              setChatDomain(result.data.message.chatDomain);
+                            }
                             setIsVerifying(false);
                             setIsVerified(true);
                           } else {
