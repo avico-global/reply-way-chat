@@ -70,15 +70,28 @@ export async function approveMerchant(merchantId) {
       }
     );
 
+    const result = await response.json();
+
+    // Check if merchant is already approved (statusCode 201 with success: false)
+    if (
+      result.success === false &&
+      result.message === "Merchant Has Already Approved" &&
+      result.statusCode === 201
+    ) {
+      return {
+        success: false,
+        alreadyApproved: true,
+        message: result.message,
+        data: result,
+      };
+    }
+
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
       throw new Error(
-        errorData.message ||
-          `API error: ${response.status} ${response.statusText}`
+        result.message || `API error: ${response.status} ${response.statusText}`
       );
     }
 
-    const result = await response.json();
     return {
       success: true,
       data: result,

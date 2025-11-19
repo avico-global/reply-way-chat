@@ -9,6 +9,7 @@ export default function VerifyEmail() {
   const [isVerifying, setIsVerifying] = useState(true);
   const [isVerified, setIsVerified] = useState(false);
   const [error, setError] = useState(null);
+  const [isAlreadyVerified, setIsAlreadyVerified] = useState(false);
   const [chatDomain, setChatDomain] = useState(null);
   const { email, token, merchantId } = router.query;
 
@@ -29,6 +30,17 @@ export default function VerifyEmail() {
             setTimeout(() => {
               setIsVerifying(false);
               setIsVerified(true);
+            }, 1000);
+          } else if (result.alreadyApproved) {
+            // Handle already approved case
+            console.log("Merchant already approved:", result.data);
+            // Extract chatDomain from the response if available
+            if (result.data?.message?.chatDomain) {
+              setChatDomain(result.data.message.chatDomain);
+            }
+            setTimeout(() => {
+              setIsVerifying(false);
+              setIsAlreadyVerified(true);
             }, 1000);
           } else {
             // Show error if approval fails
@@ -90,8 +102,40 @@ export default function VerifyEmail() {
               </div>
             )}
 
+            {/* Already Verified State */}
+            {isAlreadyVerified && !isVerifying && !isVerified && !error && (
+              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 p-8 text-center">
+                {/* Error Icon */}
+                <div className="w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg
+                    className="w-8 h-8 text-red-600 dark:text-red-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </div>
+
+                {/* Title */}
+                <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  Verification Failed
+                </h1>
+
+                {/* Error Message */}
+                <p className="text-base text-red-600 dark:text-red-400 mb-8">
+                  Merchant is already verified.
+                </p>
+              </div>
+            )}
+
             {/* Error State */}
-            {error && !isVerifying && !isVerified && (
+            {error && !isVerifying && !isVerified && !isAlreadyVerified && (
               <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 p-8 text-center">
                 {/* Error Icon */}
                 <div className="w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -135,6 +179,13 @@ export default function VerifyEmail() {
                             }
                             setIsVerifying(false);
                             setIsVerified(true);
+                          } else if (result.alreadyApproved) {
+                            // Handle already approved case
+                            if (result.data?.message?.chatDomain) {
+                              setChatDomain(result.data.message.chatDomain);
+                            }
+                            setIsVerifying(false);
+                            setIsAlreadyVerified(true);
                           } else {
                             setError(result.error);
                             setIsVerifying(false);
