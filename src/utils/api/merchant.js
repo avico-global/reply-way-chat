@@ -3,7 +3,7 @@
  * Base URL: https://dev_api.replyway.com/api/v1
  */
 
-const API_BASE_URL = "https://dev_api.replyway.com/api/v1";
+const API_BASE_URL = "https://api.replyway.com/api/v1";
 
 /**
  * Create a merchant workspace
@@ -20,7 +20,7 @@ export async function createMerchantWorkspace(data) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Custom-Origin": "https://dev.replyway.com",
+        "Custom-Origin": "https://app.replyway.com",
       },
       body: JSON.stringify({
         firstName: data.firstName,
